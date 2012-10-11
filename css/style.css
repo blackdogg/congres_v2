@@ -1,0 +1,38 @@
+*, html {
+	margin: 0;
+	padding: 0;
+}
+
+html, body{
+	height: 100%;
+}
+
+#container{
+	width: 960px;
+	height: 100%; 
+	margin: 0 auto;
+}
+
+#big_header{
+	width: 960px;
+	height: 100px;
+	background: #408080;
+}
+
+#top_menu{
+	width: 960px;
+	height: 35px;
+	background: #ff8000;
+}
+
+#content{
+	width: 960px;
+	min-height: 100%;
+	background: #408080;
+}
+
+#footer{
+	width: 960px;
+	height: 50px;
+	background: #ff8000;
+}
