@@ -4,19 +4,18 @@ class CApp{
 		
 	}
 	
-	public function run(){
+	public static function run(){
 		if(isset($_GET['r']) && ($_GET['r']!="")){
-			if(file_exists($_GET['r'].'Controller.php')){
-				require($_GET['r'].'Controller.php');
-				$class = $_GET['r'].'Controller.php';
+			if(file_exists('controllers/'.$_GET['r'].'Controller.php')){
+				$class = $_GET['r'].'Controller';
+				require('controllers/'.$class.'.php');				
+				echo $class;
 				$controller = new $class;
-				$class->run();
+				$controller->run();
 			}else{
 				echo "404";
 			}
-		}else{
-			
 		}
-	} 
+	}
 }
 ?>

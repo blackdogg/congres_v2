@@ -1,9 +1,13 @@
 <?php
 class CBaseController{
-	private $action;
+	private $action;	
+	private $defaultAction='index';
 	
+	public function run($action){
+		echo $action;
+	}
 	
-	public function run(){
+	public function renderView($name, $data){
 		
 	}
 }
