@@ -22,24 +22,34 @@
 
 	<body>
 		<div id="container">
-			<header id="big_header">
+			<!--<header id="big_header">
 				
 			</header>
 			
 			<nav id="top_menu">
 				
-			</nav>
+			</nav>-->
 
 			<div id="content">
+				<div class="clear">&nbsp;</div>
 				<?php
-				require_once('controllers/CApp.php');
-					CApp::run();
+					include_once('pages/db.php');
+					if(isset($_GET['r'])&&($_GET['r']!="")){
+						$file = 'pages/'.$_GET['r'].'php';
+						if(file_exists($file)){
+							require($file);
+						}else{
+							require('pages/404.php');
+						}
+					}else{
+						require('pages/scan.php');
+					}
 				?>
 			</div>
 
-			<footer id="footer">
+			<!--<footer id="footer">
 				&copy; Moh
-			</footer>
+			</footer>-->
 		</div>
 	</body>
 </html>

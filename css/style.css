@@ -36,3 +36,27 @@ html, body{
 	height: 50px;
 	background: #ff8000;
 }
+
+#scan_form{
+	width: 400px;
+	height: 250px;
+	margin: 300px auto 0px;
+	padding: 5px;
+}
+
+#scan_form legend{
+	font-size: 22pt;
+	width: 35%;
+	margin: 0 auto 25px;	
+}
+
+#scan_form input[type=text], input[type=submit]{
+	margin-right: 35px;
+	font-size: 18pt;
+}
+
+.clear{
+	height: 1px;
+	zoom: -1;
+	clear: both;
+}
