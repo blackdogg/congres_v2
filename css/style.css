@@ -37,22 +37,42 @@ html, body{
 	background: #ff8000;
 }
 
-#scan_form{
+.scan_form{
 	width: 400px;
-	height: 250px;
+	height: 100px;
 	margin: 300px auto 0px;
 	padding: 5px;
 }
 
-#scan_form legend{
+.scan_form legend{
+	text-align: center;
 	font-size: 22pt;
-	width: 35%;
 	margin: 0 auto 25px;	
 }
 
-#scan_form input[type=text], input[type=submit]{
+.scan_form input[type=text], input[type=submit]{
 	margin-right: 35px;
+	font-size: 18pt;	
+}
+
+.scan_form input[type=text]{
+	width: 230px;
+}
+
+.scan_form label{
+	display: inline-block;
 	font-size: 18pt;
+	width: 100px;
+}
+
+.frm_row{
+	width: 95%;
+	margin: 15px auto;
+}
+
+#response{
+	width: 400px;
+	margin: 15px auto;
 }
 
 .clear{

@@ -23,32 +23,55 @@
 	<body>
 		<div id="container">
 			<!--<header id="big_header">
-				
+
 			</header>
-			
+
 			<nav id="top_menu">
-				
+
 			</nav>-->
 
 			<div id="content">
-				<div class="clear">&nbsp;</div>
+				<div class="clear">
+					&nbsp;
+				</div>
 				<?php
-					include_once('pages/db.php');
-					if(isset($_GET['r'])&&($_GET['r']!="")){
-						$file = 'pages/'.$_GET['r'].'php';
-						if(file_exists($file)){
-							require($file);
-						}else{
-							require('pages/404.php');
-						}
-					}else{
-						require('pages/scan.php');
+				function safe_redirect($url, $method = 'PHP') {
+					try {
+						if (!headers_sent()) {
+							//If headers are not sent yet... then do a php redirect
+							@header('Location: ' . $url);
+							exit ;
+						} else
+							throw new Exception();
+					} catch( Exception $ex ) {
+						//If headers are sent... do a JavaScript redirect...
+						//if javascript disabled, do html redirect.
+						echo '<script type="text/javascript">';
+						echo 'window.location.href="' . $url . '";';
+						echo '</script>';
+						echo '<noscript>';
+						echo '<meta http-equiv="refresh" content="0;url=' . $url . '" />';
+						echo '</noscript>';
+						exit ;
 					}
+				}
+
+				include_once ('pages/db.php');
+				if (isset($_GET['r']) && ($_GET['r'] != "")) {
+					$file = 'pages/' . $_GET['r'] . '.php';
+					if (file_exists($file)) {
+						require ($file);
+					} else {
+						require ('pages/404.php');
+					}
+				} else {
+					require ('pages/scan.php');
+				}
 				?>
 			</div>
 
 			<!--<footer id="footer">
-				&copy; Moh
+			&copy; Moh
 			</footer>-->
 		</div>
 	</body>

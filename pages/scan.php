@@ -1,4 +1,4 @@
-<form id="scan_form" method="post" action="" onsubmit="return checkCode(this.code.value)">
+<form class="scan_form" id="code_form" method="post" action="" onsubmit="return checkCode(this.code.value)">
 	<legend>
 		Code
 	</legend>
@@ -12,9 +12,8 @@
 
 <script type="text/javascript">
 	function checkCode(code) {
-		alert(code);
 		if (code == '') {
-			alert('Valeur');
+			alert('Veuillez rescanner le badge.');
 			return false;
 		} else {
 			var c = code
@@ -23,11 +22,16 @@
 				type: 'GET',
 				data: {'c': code},
 				success: function(data){
-					$('#response').html(data);
+					alert(data);
+					if(data=='0'){
+						window.location = "index.php?r=enregistrer&c="+c;
+					}else{
+						$("#response").html("<h2>OK</h2>");
+						window.location = "index.php";
+					}
 				}
 			});
 			return false;
 		}
-		
 	}
 </script>
