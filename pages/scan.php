@@ -22,7 +22,7 @@
 				type: 'GET',
 				data: {'c': code},
 				success: function(data){
-					alert(data);
+					//alert(data);
 					if(data=='0'){
 						window.location = "index.php?r=enregistrer&c="+c;
 					}else{
