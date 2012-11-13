@@ -22,7 +22,7 @@
 			if (isset($_GET['session']) && ($_GET['session'] != '')) {
 				$session = $_GET['session'];
 			} else {
-				$session = 0;
+				$session = 1;
 			}
 			?>
 			<script type="text/javascript">
