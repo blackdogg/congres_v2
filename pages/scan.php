@@ -3,9 +3,9 @@
 		Code
 	</legend>
 	<span>
-		<div>
+		<div style="margin-bottom: 25px;">
 			<label for="session">Session </label>
-			<select name="session" id="session">
+			<select name="session" id="session" style="font-size: 18pt;">
 				<option>1</option>
 				<option>2</option>
 				<option>3</option>
@@ -18,6 +18,16 @@
 				<option>10</option>
 				<option>11</option>
 			</select>
+			<?php
+			if (isset($_GET['session']) && ($_GET['session'] != '')) {
+				$session = $_GET['session'];
+			} else {
+				$session = 0;
+			}
+			?>
+			<script type="text/javascript">
+				document.getElementById("session").selectedIndex = <?php echo ($session-1); ?>;
+			</script>
 		</div>
 		<input type="text" id="code" name="code"/>
 		<input type="submit" id="ok" name="ok" value="Ok"/>
@@ -43,10 +53,10 @@
 				success : function(data) {
 					//alert(data);
 					if (data == '0') {
-						window.location = "index.php?r=enregistrer&c=" + c;
+						window.location = "index.php?r=enregistrer&c=" + c + "&session=" + session;
 					} else {
 						$("#response").html("<h2>OK</h2>");
-						window.location = "index.php?r=pointer&code="+c+"&session="+session;
+						window.location = "index.php?r=pointer&code=" + c + "&session=" + session;
 					}
 				}
 			});
